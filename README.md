@@ -10,7 +10,7 @@ This is an educational [Next.js 15 RC + React 19](https://nextjs.org) project, w
 
 ![Homepage loaded in dark system theme](docs/images/2_homepage-loaded-in-dark-system-theme.png "Homepage loaded in dark system theme")
 
-- Click on a country code opens a country page using the standard feature of Next.js dynamic routes like app/\[countrycode\]/page.tsx
+- Click on a country code opens a country page using the standard feature of Next.js dynamic routes like [app/\[countrycode\]/page.tsx](app/[countrycode]/page.tsx)
 
 - The country page queries the same GraphQL service but this time using the filter by "code" like
   <pre>
@@ -84,9 +84,9 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
 - A combination of loading.tsx + Suspense + fallback Shimmer control highlights usage of lazy server-side data loading.
 
-  - Also, the server component components/ContentHomeCountry.tsx loads dynamically a client side component with disabled SSR.
+  - Also, the server component [components/server/ContentHomeCountry.tsx](components/server/ContentHomeCountry.tsx) loads dynamically a client side component with disabled SSR.
 
-  - This technique demonstrates how to solve classic SSR problems with using window- and other client side objects ported from old codebases.
+  - This technique demonstrates how to solve classic SSR problems with using window and other client side only objects ported from old codebases.
 
 - Country page demonstrates usage of Radix UI Themes controls from the package @radix-ui/themes
 
