@@ -93,7 +93,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
   - **Details** button visible on the page opens a right-hand side panel, which is made of slightly tweaked Radix UI Dialog.
 
-  - All page elements support dynamic detection of system theme change and correctly reflect this change with no page reloading.
+  - All page elements support dynamic detection of a system theme change and correctly reflect this change with no page reloading.
 
     - For instance, open the right-hand side panel and change system theme from light to dark. The panel will correctly reflect this change.
 
