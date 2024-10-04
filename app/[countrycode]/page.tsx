@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: process.env.pagedescriptionhome,
 };
 
-export default async function CountryCapital({
+export default async function CountryPage({
   params: { countrycode },
 }: {
   params: { countrycode: string };
