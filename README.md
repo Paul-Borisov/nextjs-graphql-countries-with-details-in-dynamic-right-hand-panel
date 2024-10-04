@@ -20,7 +20,7 @@ This is an educational **Next.js 15 RC + React 19** project, which highlights co
       }
   </pre>
 
-- If data does not have country name in returned attributes, the logic queries a public REST service supplying the country code to get the name.
+- If data does not have country name in returned attributes, the logic additionally queries a public REST service supplying the country code to get the name.
 
 ![Country page loaded in light system theme](docs/images/3_country-page-loaded-in-light-system-theme.png "Country page loaded in light system theme")
 
