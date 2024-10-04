@@ -97,7 +97,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
     - For instance, open the right-hand side panel and change system theme from light to dark. <a href="docs/images/5_country-page-with-right-hand-panel-automatically-adjusted-to-dark-system-theme.png">The panel</a> should correctly reflect this change.
 
-    - The logic uses **window.matchMedia("(prefers-color-scheme: dark)")** with **change** event listener. Please refer to shared/hooks/useSystemDarkMode
+    - The logic uses **window.matchMedia("(prefers-color-scheme: dark)")** with **change** event listener. Please refer to [shared/hooks/useSystemDarkMode](shared/hooks/useSystemDarkMode).
 
   - There are useful tailor-made features managed by settings defined in .env file.
 
