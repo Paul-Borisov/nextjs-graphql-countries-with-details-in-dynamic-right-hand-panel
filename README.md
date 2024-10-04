@@ -134,7 +134,7 @@ Install modules
 npm i
 ```
 
-Start the dev server:
+Start the dev server
 
 ```bash
 npm run dev
