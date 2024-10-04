@@ -1,6 +1,6 @@
 # Overview
 
-This is an educational ** Next.js 15 RC + React 19 ** project, which highlights concepts of using GraphQL with Appollo client.
+This is an educational **Next.js 15 RC + React 19** project, which highlights concepts of using GraphQL with Appollo client.
 
 - Homepage queries a public GraphQL service, which returns a list of countries with desired attributes.
 
