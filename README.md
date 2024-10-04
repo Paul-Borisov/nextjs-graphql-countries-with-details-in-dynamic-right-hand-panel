@@ -18,6 +18,7 @@ This is an educational **Next.js 15 RC + React 19** project, which highlights co
       countries(filter: {code: {eq: "countrycode"}}) {
         ...
       }
+    }
   </pre>
 
 - If data does not have country name in returned attributes, the logic additionally queries a public REST service supplying the country code to get the name.
