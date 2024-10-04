@@ -103,7 +103,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
     - pagecachetimeout=15: demostrates how to persist cache data on all pages for 15 seconds in production builds.
 
-      - To show this, the first row in the home page table gets a test value with dynamic Phone property. This data persists for 15 seconds and then gets updated.
+      - To show this, the first row in the home page table gets a test value with dynamic [Phone](docs/images/2_homepage-loaded-in-dark-system-theme.png) property. This data persists for 15 seconds and then gets updated.
 
     - showVerticalScrollbar=true: demostrates correct settings of Radix Dialog to suppress undesired UI-layout shifts on opening the right-hand side panel in the browser window with a visible vertical scrollbar.
 
