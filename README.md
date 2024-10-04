@@ -99,7 +99,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
     - The logic uses **window.matchMedia("(prefers-color-scheme: dark)")** with **change** event listener. Please refer to [shared/hooks/useSystemDarkMode.ts](shared/hooks/useSystemDarkMode.ts).
 
-  - There are useful tailor-made features managed by settings defined in .env file.
+  - The codebase includes a few useful tailor-made features managed by settings in .env file.
 
     - pagecachetimeout=15: demostrates how to persist cache data on all pages for 15 seconds in production builds.
 
