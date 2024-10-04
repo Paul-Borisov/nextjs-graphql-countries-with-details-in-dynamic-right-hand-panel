@@ -91,7 +91,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
 - Country page demonstrates usage of Radix UI Themes controls from the package @radix-ui/themes
 
-  - "Details" button visible on the page opens a right-hand side panel, which is made of slightly tweaked Radix UI Dialog.
+  - **Details** button visible on the page opens a right-hand side panel, which is made of slightly tweaked Radix UI Dialog.
 
   - All page elements support dynamic detection of system theme change and correctly reflect this change with no page reloading.
 
