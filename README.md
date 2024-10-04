@@ -95,7 +95,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
   - All page elements support dynamic detection of a system theme change and correctly reflect this change with no page reloading.
 
-    - For instance, open the right-hand side panel and change system theme from light to dark. The panel will correctly reflect this change.
+    - For instance, open the right-hand side panel and change system theme from light to dark. <a href="docs/images/5_country-page-with-right-hand-panel-automatically-adjusted-to-dark-system-theme.png">The panel</a> will correctly reflect this change.
 
     - The logic uses window.matchMedia("(prefers-color-scheme: dark)") with "change" event listener. Please refer to shared/hooks/useSystemDarkMode
 
