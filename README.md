@@ -81,7 +81,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
 # User interface
 
-- The UI adjusts automatically to using current system theme of user's environment, dark or light.
+- The UI adjusts automatically to using a current system theme of user's environment, dark or light.
 
 - A combination of loading.tsx + Suspense + fallback Shimmer control highlights usage of lazy server-side data loading.
 
@@ -89,7 +89,7 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
 
   - This technique demonstrates how to solve classic SSR problems with using window and other client side only objects ported from old codebases.
 
-- Country page demonstrates usage of Radix UI Themes controls from the package @radix-ui/themes
+- <a href="docs/images/3_country-page-loaded-in-light-system-theme.png">Country page</a> demonstrates usage of Radix UI Themes controls from the package @radix-ui/themes.
 
   - **Details** button visible on the page opens a right-hand side panel, which is made of slightly tweaked Radix UI Dialog.
 
