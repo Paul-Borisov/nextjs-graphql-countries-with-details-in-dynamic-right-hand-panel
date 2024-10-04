@@ -1,0 +1,25 @@
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  display: grid;
+  place-content: center;
+}
+@media (prefers-color-scheme: dark) {
+  .shimmer {
+    background: linear-gradient(90deg, #000 25%, #e0e0e0 50%, #000 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+    display: grid;
+    place-content: center;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
