@@ -1,17 +1,25 @@
 export default class Utils {
-  static ensureDynamicContent = (rowTemplate: Object) => {
+  // Not in use, an example of using type guards
+  static ensureDynamicContent = <
+    T extends Record<string, string | number | boolean>
+  >(
+    rowTemplate: T
+  ) => {
     const newRow = { ...rowTemplate };
     if (Date.now() % 2) {
       Object.keys(newRow).forEach((key) => {
-        let value = (newRow as any)[key];
-        if (typeof value !== "string") return;
-        (newRow as any)[key] = this.replaceWithTestContent(value);
+        let value = newRow[key as keyof T];
+        newRow[key as keyof T] = this.replaceWithTestContent(
+          value?.toString()
+        ) as T[keyof T];
       });
     }
     return newRow;
   };
 
   static replaceWithTestContent = (value: string, replaceWith = "test") => {
+    if (!value) return value;
+
     const textContent = [...replaceWith];
 
     let index = 0;

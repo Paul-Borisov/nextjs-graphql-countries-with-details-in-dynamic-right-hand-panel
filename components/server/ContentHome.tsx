@@ -10,12 +10,11 @@ export default async function ContentHome() {
 
   return (
     <>
-      <div className="text-3xl font-semibold pt-5 pb-10 text-center fixed opacity-40">
-        Countries
-      </div>
+      <div className="text-3xl font-semibold fixed opacity-40">Countries</div>
       <section className="w-[80vw] h-[50vh] overflow-y-auto whitespace-pre-wrap break-words">
         <ol className="grid grid-cols-5 gap-5">
           {formatData(data, false, process.env.NODE_ENV === "production")}
+          {/* {formatData(data, false, process.env.NODE_ENV === "development")} */}
         </ol>
       </section>
     </>

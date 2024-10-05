@@ -13,7 +13,10 @@ export const metadata: Metadata = {
 };
 
 // Uncomment the following line in case you want to use searchParams
-export const dynamic = "force-dynamic"; // This works in layout.tsx as well as in page.tsx
+// export const dynamic = "force-dynamic"; // This works in layout.tsx as well as in page.tsx
+// export const revalidate = /^\d+$/.test(process.env.pagecachetimeout || "") // Please refer to comments in layout.tsx
+//   ? Number(process.env.pagecachetimeout)
+//   : false;
 
 // unstable_after(() => {
 //   setInterval(() => {

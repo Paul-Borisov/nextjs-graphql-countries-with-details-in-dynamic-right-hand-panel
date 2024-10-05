@@ -11,12 +11,14 @@ export default class GraphQLUtils {
   private client: ApolloClient<NormalizedCacheObject>;
 
   constructor() {
-    const defaulturl = "https://countries.trevorblades.com/";
+    const defaultUrl = "https://countries.trevorblades.com/";
     this.client = new ApolloClient({
-      uri: process.env.endpointGraphqlCountries || defaulturl,
+      uri: process.env.endpointGraphqlCountries || defaultUrl,
       cache: new InMemoryCache(),
     });
   }
+
+  getApiKey = () => process.env.apiKeyGql || ""; // Get you API key or jwt auth token here
 
   getQueryFilter = (filter?: IGraphQLQueryFilter) => {
     return filter
@@ -28,6 +30,8 @@ export default class GraphQLUtils {
 
   getData = async (queryFilter: string, delay: number = 2000) => {
     if (delay) await new Promise((resolve) => setTimeout(resolve, delay));
+
+    const authToken = this.getApiKey();
 
     return this.client.query({
       query: gql` 
@@ -59,6 +63,11 @@ export default class GraphQLUtils {
           }
         }
       `,
+      context: {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      },
     });
   };
 }

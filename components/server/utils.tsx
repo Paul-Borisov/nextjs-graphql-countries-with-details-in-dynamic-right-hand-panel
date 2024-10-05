@@ -55,7 +55,7 @@ export const formatData = (
 
   const headers = new Set<string>();
   const results: JSX.Element[] = [];
-  const templateRow: any = {};
+  const templateRow: Record<string, string | number | boolean> = {};
   data.data.countries.forEach((country, index) => {
     if (!("capital" in country && country.capital)) return;
     Object.keys(country)
@@ -83,7 +83,9 @@ export const formatData = (
   if (addTestRow) {
     const testRow: JSX.Element[] = [];
     Object.keys(templateRow).forEach((key) => {
-      const testValue = Utils.replaceWithTestContent(templateRow[key]);
+      const testValue = Utils.replaceWithTestContent(
+        templateRow[key]?.toString()
+      );
       if (keyValue) {
         formatKeyValueView(testRow, key, testValue);
       } else {
