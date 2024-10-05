@@ -2,22 +2,29 @@ import "server-only";
 
 import {
   ApolloClient,
-  InMemoryCache,
+  //InMemoryCache,
   NormalizedCacheObject,
-  //ApolloProvider,
   gql,
 } from "@apollo/client";
-import IGraphQLQueryFilter from "@/shared/types/iGraphQLQueryFilter";
+import getApolloCLient from "@/shared/singletons/apolloClient";
+
+// const defaultUrl = "https://countries.trevorblades.com/";
+// const apolloClient = new ApolloClient({
+//   uri: process.env.endpointGraphqlCountries || defaultUrl,
+//   cache: new InMemoryCache(),
+// });
 
 export default class GraphQLUtils {
   private client: ApolloClient<NormalizedCacheObject>;
 
   constructor() {
+    // Declaring a separate singleton for ApolloClient does not have much sense because the client already uses a singleton internally.
+    // Anyway, this is possible to implement and use it conditionally.
+    // - For instance, to support multiple endpointUris, to use singleton in production but not in development to skip caching.
     const defaultUrl = "https://countries.trevorblades.com/";
-    this.client = new ApolloClient({
-      uri: process.env.endpointGraphqlCountries || defaultUrl,
-      cache: new InMemoryCache(),
-    });
+    const endpointUri = process.env.endpointGraphqlCountries || defaultUrl;
+    this.client = getApolloCLient(endpointUri);
+    //this.client = apolloClient;
   }
 
   getApiKey = () => process.env.apiKeyGql || ""; // Get you API key or jwt auth token here

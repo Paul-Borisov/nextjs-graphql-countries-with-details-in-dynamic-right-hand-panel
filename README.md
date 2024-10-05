@@ -37,17 +37,24 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
    npm install @apollo/client graphql
 
 2. Add the following code to your component
-   <pre>
-   import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-   
+
+   ```typescript
+   import {
+     ApolloClient,
+     InMemoryCache,
+     ApolloProvider,
+     gql,
+   } from "@apollo/client";
+
    const client = new ApolloClient({
      uri: "https://countries.trevorblades.com/", // Put here URL of your GraphQL endpoint (server)
      cache: new InMemoryCache(),
    });
-   
+
    const queryFilter = '(filter: {currency: {eq: "EUR"}})';
-   client.query({
-     query: gql`
+   client
+     .query({
+       query: gql`
        query {
          countries${queryFilter} {
            name: awsRegion
@@ -76,8 +83,29 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
          }
        }
     `,
-   }).then((result) => console.log(result));
-   </pre>
+     })
+     .then((result) => console.log(result));
+   ```
+
+3. You can also test simple GraphQL queries directly in browser's console. For instance:
+   ```javascript
+   fetch("https://flyby-router-demo.herokuapp.com/", {
+     method: "POST",
+     headers: { "content-type": "application/json" },
+     body: JSON.stringify({
+       query: `query GetLocations {
+       locations {
+         id
+         name
+         description
+         photo
+       }
+     }`,
+     }),
+   })
+     .then((r) => r.json())
+     .then((data) => console.log(data));
+   ```
 
 # User interface
 
