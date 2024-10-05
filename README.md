@@ -120,6 +120,7 @@ Review / adjust default settings found in .env
 ```bash
 endpointCountryByCode=https://restcountries.com/v3.1/alpha/{countryCode}
 endpointGraphqlCountries=https://countries.trevorblades.com/
+apiKeyGql="for instance, an api key for your GQL endpoint"
 pagetitlehome="Next.js 15 with GraphQL/Apollo"
 pagedescriptionhome="Example of Next.js 15 app with GraphQL queries via Appollo Client"
 pageheader="Next.js 15 app with GraphQL queries via Appollo Client"
