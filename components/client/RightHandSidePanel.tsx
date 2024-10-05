@@ -3,7 +3,7 @@
 import "@radix-ui/themes/styles.css";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { Dialog, Theme } from "@radix-ui/themes";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import useSystemDarkMode from "@/shared/hooks/useSystemDarkMode";
 
 type Props = {
