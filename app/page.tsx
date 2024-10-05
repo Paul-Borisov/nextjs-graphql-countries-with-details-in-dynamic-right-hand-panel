@@ -2,7 +2,7 @@ import ContentContainer from "@/components/server/ContentContainer";
 import ContentHeader from "@/components/server/ContentHeader";
 import ContentHome from "@/components/server/ContentHome";
 import { Metadata } from "next";
-import { revalidatePath } from "next/cache";
+//import { revalidatePath } from "next/cache";
 //import { unstable_after } from "next/server";
 // import Loading from "@/components/server/Loading";
 // import { Suspense } from "react";

@@ -1,5 +1,5 @@
-import Utils from "@/shared/utils/miscUtils";
 import Link from "next/link";
+import Utils from "@/shared/utils/miscUtils";
 
 const formatTableView = (
   results: JSX.Element[],

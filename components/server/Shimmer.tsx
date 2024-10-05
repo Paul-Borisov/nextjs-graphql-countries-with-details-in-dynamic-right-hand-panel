@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
 import * as css from "./shimmer.module.css";
+import React, { ReactNode } from "react";
 
 type ShimmerProps = {
   children: ReactNode;
