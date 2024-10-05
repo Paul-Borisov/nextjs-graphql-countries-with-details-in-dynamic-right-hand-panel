@@ -1,12 +1,13 @@
 import { formatData } from "./utils";
 import GraphQLUtils from "@/shared/utils/graphQLUtils";
 import IGraphQLQueryFilter from "@/shared/types/iGraphQLQueryFilter";
+import Utils from "@/shared/utils/miscUtils";
 
 export default async function ContentHome() {
   //const filter: IGraphQLQueryFilter = { currency: { eq: "'EUR'" } };
   const filter: IGraphQLQueryFilter | undefined = undefined;
   const gql = new GraphQLUtils();
-  const data = await gql.getData(gql.getQueryFilter(filter), 0);
+  const data = await gql.getData(Utils.getQueryFilter(filter), 0);
 
   return (
     <>

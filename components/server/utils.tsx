@@ -4,11 +4,12 @@ import Utils from "@/shared/utils/miscUtils";
 const formatTableView = (
   results: JSX.Element[],
   key: string,
-  value: string
+  value: string,
+  uniqueKey: string
 ) => {
   if (key === "code") {
     results.push(
-      <li>
+      <li key={uniqueKey}>
         <Link
           className="underline font-semibold text-blue-500"
           href={`/${value}`}
@@ -18,17 +19,18 @@ const formatTableView = (
       </li>
     );
   } else {
-    results.push(<li>{value}</li>);
+    results.push(<li key={uniqueKey}>{value}</li>);
   }
 };
 
 const formatKeyValueView = (
   results: JSX.Element[],
   key: string,
-  value: string
+  value: string,
+  uniqueKey: string
 ) => {
   results.push(
-    <li className="grid grid-cols-2">
+    <li key={uniqueKey} className="grid grid-cols-2">
       <div className="font-semibold capitalize">{key}</div>
       <div>{value}</div>
     </li>
@@ -71,10 +73,11 @@ export const formatData = (
 
         if (!headers.has(key)) headers.add(key);
 
+        const uniqueKey = key + index;
         if (keyValue) {
-          formatKeyValueView(results, key, country[key]);
+          formatKeyValueView(results, key, country[key], uniqueKey);
         } else {
-          formatTableView(results, key, country[key]);
+          formatTableView(results, key, country[key], uniqueKey);
         }
         if (index === 0) templateRow[key] = country[key];
       });
@@ -86,10 +89,11 @@ export const formatData = (
       const testValue = Utils.replaceWithTestContent(
         templateRow[key]?.toString()
       );
+      const uniqueKey = key + "-1";
       if (keyValue) {
-        formatKeyValueView(testRow, key, testValue);
+        formatKeyValueView(testRow, key, testValue, uniqueKey);
       } else {
-        formatTableView(testRow, key, testValue);
+        formatTableView(testRow, key, testValue, uniqueKey);
       }
     });
     results.unshift(...testRow);
@@ -98,7 +102,7 @@ export const formatData = (
   if (!keyValue) {
     results.unshift(
       ...Array.from(headers).map((header) => (
-        <li className="font-semibold capitalize" key={header}>
+        <li className="font-semibold capitalize" key={header + "-2"}>
           {header}
         </li>
       ))

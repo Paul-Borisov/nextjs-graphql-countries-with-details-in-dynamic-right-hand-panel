@@ -1,3 +1,5 @@
+import "server-only";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -19,14 +21,6 @@ export default class GraphQLUtils {
   }
 
   getApiKey = () => process.env.apiKeyGql || ""; // Get you API key or jwt auth token here
-
-  getQueryFilter = (filter?: IGraphQLQueryFilter) => {
-    return filter
-      ? `(filter: ${JSON.stringify(filter)
-          .replace(/"/g, "")
-          .replace(/'/g, '"')})`
-      : "";
-  };
 
   getData = async (queryFilter: string, delay: number = 2000) => {
     if (delay) await new Promise((resolve) => setTimeout(resolve, delay));

@@ -1,3 +1,5 @@
+import IGraphQLQueryFilter from "../types/iGraphQLQueryFilter";
+
 export default class Utils {
   // Not in use, an example of using type guards
   static ensureDynamicContent = <
@@ -15,6 +17,14 @@ export default class Utils {
       });
     }
     return newRow;
+  };
+
+  static getQueryFilter = (filter?: IGraphQLQueryFilter) => {
+    return filter
+      ? `(filter: ${JSON.stringify(filter)
+          .replace(/"/g, "")
+          .replace(/'/g, '"')})`
+      : "";
   };
 
   static replaceWithTestContent = (value: string, replaceWith = "test") => {

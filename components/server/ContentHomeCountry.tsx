@@ -5,6 +5,7 @@ import { findFirstCountryName, formatData } from "./utils";
 import GraphQLUtils from "@/shared/utils/graphQLUtils";
 import IGraphQLQueryFilter from "@/shared/types/iGraphQLQueryFilter";
 import Link from "next/link";
+import Utils from "@/shared/utils/miscUtils";
 
 // Using dynamic loading prevents SSR errors related to unavailable window object
 const RightHandSidePanel = dynamic(
@@ -20,7 +21,7 @@ export default async function ContentHomeCountry({
   const filter: IGraphQLQueryFilter = { code: { eq: `'${countryCode}'` } };
 
   const gql = new GraphQLUtils();
-  const data = await gql.getData(gql.getQueryFilter(filter), 0);
+  const data = await gql.getData(Utils.getQueryFilter(filter), 0);
   const countries = formatData(data, true);
   let countryName = findFirstCountryName(data) ?? countryCode;
 

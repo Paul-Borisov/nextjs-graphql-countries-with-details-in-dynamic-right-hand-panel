@@ -1,3 +1,5 @@
+import "server-only";
+
 export default class CountryUtils {
   static tryGetCountryNameByCountryCode = async (countryCode: string) => {
     const defaultUrl = "https://restcountries.com/v3.1/alpha/{countryCode}";

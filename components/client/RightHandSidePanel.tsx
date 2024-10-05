@@ -3,7 +3,7 @@
 import "@radix-ui/themes/styles.css";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { Dialog, Theme } from "@radix-ui/themes";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import useSystemDarkMode from "@/shared/hooks/useSystemDarkMode";
 
 type Props = {
@@ -24,6 +24,7 @@ export default function RightHandSidePanel({
   controlToOpenDialog,
 }: Props) {
   const isDarkMode = useSystemDarkMode();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const preventLightClosing = (e: Event) => {
     if (disableLightClosing) {
@@ -41,6 +42,7 @@ export default function RightHandSidePanel({
           <Dialog.Trigger>{controlToOpenDialog}</Dialog.Trigger>
           <Dialog.Content
             className={className}
+            onOpenAutoFocus={() => setIsDialogOpen(true)}
             onInteractOutside={preventLightClosing}
             onEscapeKeyDown={preventLightClosing}
           >
