@@ -1,18 +1,24 @@
+import "server-only";
+
 import Link from "next/link";
 import Utils from "@/shared/utils/miscUtils";
 
+const formatLinkUrl = (value: string, returnUrl: string) => {
+  return `${returnUrl}${returnUrl.endsWith("/") ? "" : "/"}${value}`;
+};
 const formatTableView = (
   results: JSX.Element[],
   key: string,
   value: string,
-  uniqueKey: string
+  uniqueKey: string,
+  returnUrl: string
 ) => {
   if (key === "code") {
     results.push(
       <li key={uniqueKey}>
         <Link
-          className="underline font-semibold text-blue-500"
-          href={`/${value}`}
+          className="underline font-semibold text-blue-500 hover:text-blue-700 dark:hover:text-white"
+          href={formatLinkUrl(value, returnUrl)}
         >
           {value}
         </Link>
@@ -40,7 +46,8 @@ const formatKeyValueView = (
 export const formatData = (
   data?: unknown,
   keyValue: boolean = false,
-  addTestRow: boolean = false
+  addTestRow: boolean = false,
+  returnUrl: string = "/"
 ) => {
   // type guarding
   if (!(data && data instanceof Object)) return null;
@@ -58,8 +65,11 @@ export const formatData = (
   const headers = new Set<string>();
   const results: JSX.Element[] = [];
   const templateRow: Record<string, string | number | boolean> = {};
+  const rowClass = keyValue ? "grid gap-3" : "grid grid-cols-5 gap-5 pb-5";
+
   data.data.countries.forEach((country, index) => {
     if (!("capital" in country && country.capital)) return;
+    const countryColumnValues: JSX.Element[] = [];
     Object.keys(country)
       .sort()
       .forEach((key) => {
@@ -75,12 +85,23 @@ export const formatData = (
 
         const uniqueKey = key + index;
         if (keyValue) {
-          formatKeyValueView(results, key, country[key], uniqueKey);
+          formatKeyValueView(countryColumnValues, key, country[key], uniqueKey);
         } else {
-          formatTableView(results, key, country[key], uniqueKey);
+          formatTableView(
+            countryColumnValues,
+            key,
+            country[key],
+            uniqueKey,
+            returnUrl
+          );
         }
         if (index === 0) templateRow[key] = country[key];
       });
+    results.push(
+      <ol className={rowClass} key={country["code"] ?? `countryrow-${index}`}>
+        {countryColumnValues}
+      </ol>
+    );
   });
 
   if (addTestRow) {
@@ -93,19 +114,25 @@ export const formatData = (
       if (keyValue) {
         formatKeyValueView(testRow, key, testValue, uniqueKey);
       } else {
-        formatTableView(testRow, key, testValue, uniqueKey);
+        formatTableView(testRow, key, testValue, uniqueKey, returnUrl);
       }
     });
-    results.unshift(...testRow);
+    results.unshift(
+      <ol className={rowClass} key={"testrow-0"}>
+        {testRow}
+      </ol>
+    );
   }
 
   if (!keyValue) {
     results.unshift(
-      ...Array.from(headers).map((header) => (
-        <li className="font-semibold capitalize" key={header + "-2"}>
-          {header}
-        </li>
-      ))
+      <ol className={rowClass} key={"kv-0"}>
+        {Array.from(headers).map((header) => (
+          <li className="font-semibold capitalize" key={header + "-2"}>
+            {header}
+          </li>
+        ))}
+      </ol>
     );
   }
 

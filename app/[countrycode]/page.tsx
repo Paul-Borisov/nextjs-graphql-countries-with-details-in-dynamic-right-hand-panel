@@ -1,25 +1,33 @@
 import ContentContainer from "@/components/server/ContentContainer";
 import ContentHomeCountry from "@/components/server/ContentHomeCountry";
-import { Metadata } from "next";
+import Link from "next/link";
+import { pageMetadata } from "@/shared/constants/pageMetadata";
 
-export const metadata: Metadata = {
-  title: process.env.pagetitlehome,
-  description: process.env.pagedescriptionhome,
-};
+export const metadata = pageMetadata;
 
 export default async function CountryPage({
   params: { countrycode },
+  returnUrl = "/",
 }: {
   params: { countrycode: string };
+  returnUrl: string;
 }) {
+  //await new Promise((resolve) => setTimeout(resolve, 1000));
   return (
     <>
-      <main className="flex flex-col gap-5 justify-center items-center h-screen">
+      <Link
+        className="absolute underline top-5 left-5 font-semibold text-blue-500 hover:text-blue-700  dark:text-gray-400 dark:hover:text-white"
+        href={returnUrl}
+      >
+        &laquo; Back to all countries
+      </Link>
+      <main className="flex flex-col gap-5 justify-center items-center h-screen -mt-5">
         <ContentContainer>
-          <ContentHomeCountry countrycode={countrycode} />
+          <ContentHomeCountry countrycode={countrycode} returnUrl={returnUrl} />
         </ContentContainer>
       </main>
-      {/true|1/i.test(process.env.showVerticalScrollbar || "") ? (
+      {/true|1/i.test(process.env.showVerticalScrollbar || "") &&
+      returnUrl === "/" ? (
         <footer className="h-[200vh]" />
       ) : null}
     </>

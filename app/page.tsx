@@ -1,16 +1,14 @@
 import ContentContainer from "@/components/server/ContentContainer";
 import ContentHeader from "@/components/server/ContentHeader";
 import ContentHome from "@/components/server/ContentHome";
-import { Metadata } from "next";
+import Link from "next/link";
+import { pageMetadata } from "@/shared/constants/pageMetadata";
 //import { revalidatePath } from "next/cache";
 //import { unstable_after } from "next/server";
 // import Loading from "@/components/server/Loading";
 // import { Suspense } from "react";
 
-export const metadata: Metadata = {
-  title: process.env.pagetitlehome,
-  description: process.env.pagedescriptionhome,
-};
+export const metadata = pageMetadata;
 
 // Uncomment the following line in case you want to use searchParams
 // export const dynamic = "force-dynamic"; // This works in layout.tsx as well as in page.tsx
@@ -25,7 +23,7 @@ export const metadata: Metadata = {
 //   }, 5000);
 // });
 
-export default async function Home() {
+export default async function HomePage() {
   // ({
   //   searchParams,
   // }: {
@@ -34,6 +32,9 @@ export default async function Home() {
   // console.log(searchParams);
   return (
     <>
+      <nav className="absolute underline top-5 left-5 font-semibold text-blue-500 hover:text-blue-700 dark:text-gray-400 dark:hover:text-white">
+        <Link href="/virtual">Show grid with dynamic scroll &raquo;</Link>
+      </nav>
       <main className="flex flex-col gap-5 justify-center items-center h-screen">
         <ContentContainer>
           <ContentHeader />

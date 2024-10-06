@@ -15,8 +15,10 @@ const RightHandSidePanel = dynamic(
 
 export default async function ContentHomeCountry({
   countrycode: countryCode,
+  returnUrl,
 }: {
   countrycode: string;
+  returnUrl: string;
 }) {
   const filter: IGraphQLQueryFilter = { code: { eq: `'${countryCode}'` } };
 
@@ -45,8 +47,8 @@ export default async function ContentHomeCountry({
           </section>
         </div>
         <Link
-          className="underline font-semibold text-blue-500 text-center"
-          href="/"
+          className="text-center underline font-semibold text-blue-500 hover:text-blue-700  dark:text-gray-400 dark:hover:text-white"
+          href={returnUrl}
         >
           &laquo; Back to all countries
         </Link>

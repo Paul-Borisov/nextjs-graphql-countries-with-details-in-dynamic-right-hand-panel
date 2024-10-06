@@ -2,7 +2,7 @@ import ContentHeader from "@/components/server/ContentHeader";
 import Loading from "@/components/server/Loading";
 import Shimmer from "@/components/server/Shimmer";
 
-export default async function ContentLoading() {
+export default async function HomePageLoading() {
   return (
     <article className="flex flex-col gap-5 justify-center items-center h-screen">
       <ContentHeader />

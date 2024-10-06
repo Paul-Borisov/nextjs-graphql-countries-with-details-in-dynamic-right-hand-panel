@@ -2,11 +2,15 @@
 
 This is an educational **Next.js 15 RC + React 19** project for my colleagues, which highlights concepts of using GraphQL with Appollo client.
 
+- Technical stack: Next.js 15, React 19, TypeScript, GraphQL with Apollo Client and public server endpoint, Tailwind, Radix UI, TanStask Virtual.
+
 - Homepage queries a public GraphQL service, which returns a list of countries with desired attributes.
 
 ![Homepage loading in dark system theme](docs/images/1_homepage-loading-in-dark-system-theme.png "Homepage loading in dark system themes")
 
 - Data is presented in a tabular view with multiple attributes including country codes shaped as links.
+
+- I also added a navigation item to virtual grid with effects of dynamic **infinite scroll**.
 
 ![Homepage loaded in dark system theme](docs/images/2_homepage-loaded-in-dark-system-theme.png "Homepage loaded in dark system theme")
 
