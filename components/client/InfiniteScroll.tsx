@@ -44,6 +44,7 @@ export default function InfiniteScrollWrapper({ data }: { data: ReactNode[] }) {
 }
 
 function InfiniteScroll({ data: initData }: { data: ReactNode[] }) {
+  "use no memo"; // opts out this component from being compiled by React Compiler
   const {
     status,
     data,

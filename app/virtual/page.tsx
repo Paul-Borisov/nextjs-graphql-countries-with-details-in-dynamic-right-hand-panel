@@ -9,6 +9,9 @@ import Utils from "@/shared/utils/miscUtils";
 import Link from "next/link";
 
 export const metadata = pageMetadata;
+// Using this option may result in unexpected problems like "429 - Too many requests" in REST APIs on scrolling of a page with sublinks.
+// Also, this option must be used in pair with the same option enabled on the linked page (the sublevel page) to make it working.
+//export const experimental_ppr = true;
 
 export default async function VirtualHomePage() {
   const filter: IGraphQLQueryFilter | undefined = undefined;

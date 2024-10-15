@@ -4,6 +4,8 @@ import Link from "next/link";
 import { pageMetadata } from "@/shared/constants/pageMetadata";
 
 export const metadata = pageMetadata;
+// This option must be used in pair with the same option in the upper page
+//export const experimental_ppr = true;
 
 export default async function CountryPage({
   params: { countrycode },

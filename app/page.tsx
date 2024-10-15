@@ -9,6 +9,9 @@ import { pageMetadata } from "@/shared/constants/pageMetadata";
 // import { Suspense } from "react";
 
 export const metadata = pageMetadata;
+// Using this option may result in unexpected problems like "429 - Too many requests" in REST APIs on scrolling of a page with sublinks.
+// Also, this option must be used in pair with the same option enabled on the linked page (the sublevel page) to make it working.
+export const experimental_ppr = true;
 
 // Uncomment the following line in case you want to use searchParams
 // export const dynamic = "force-dynamic"; // This works in layout.tsx as well as in page.tsx
