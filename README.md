@@ -93,7 +93,7 @@ Use Appollo Client. More details: https://www.apollographql.com/docs/react/get-s
 
 3. You can also test simple GraphQL queries locally in the browser's console. For instance:
    - Open the site https://flyby-router-demo.herokuapp.com/ to be compliant with their Content Security Policy directives.
-   - Open Dev Tools (by pressing F12 in Chrome) and enter the following code into the console.
+   - While staying on the same page, open Dev Tools (by pressing F12 in Chrome) and enter the following code into the console.
    ```javascript
    fetch("https://flyby-router-demo.herokuapp.com/", {
      method: "POST",
