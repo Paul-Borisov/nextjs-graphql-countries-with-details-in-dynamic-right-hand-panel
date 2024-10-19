@@ -35,7 +35,7 @@ This is an educational **Next.js 15 RC + React 19** project for my colleagues, w
 
 # Simple steps to add support of GraphQL to Next.js environments
 
-Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-started
+Use Appollo Client. More details: https://www.apollographql.com/docs/react/get-started
 
 1. Add two packages
    npm install @apollo/client graphql
@@ -91,7 +91,9 @@ Use Appollo CLient. More details: https://www.apollographql.com/docs/react/get-s
      .then((result) => console.log(result));
    ```
 
-3. You can also test simple GraphQL queries directly in browser's console. For instance:
+3. You can also test simple GraphQL queries locally in the browser's console. For instance:
+   - Open the site https://flyby-router-demo.herokuapp.com/ to be compliant with their Content Security Policy directives.
+   - Open Dev Tools (by pressing F12 in Chrome) and enter the following code into the console.
    ```javascript
    fetch("https://flyby-router-demo.herokuapp.com/", {
      method: "POST",
